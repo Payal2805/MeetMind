@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from app.database import test_connection
 from app.routers.meetings import router as meetings_router
 from app.routers.audio import router as audio_router
+from app.routers.transcription import router as transcription_router
 
 
 app = FastAPI(
@@ -16,6 +17,7 @@ app = FastAPI(
 # Register API routers
 app.include_router(meetings_router)
 app.include_router(audio_router)
+app.include_router(transcription_router)
 
 
 @app.get("/")
