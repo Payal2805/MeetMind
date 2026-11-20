@@ -70,7 +70,12 @@ def transcribe_audio(
         import whisper
 
         model = whisper.load_model("tiny")
-        result = model.transcribe(audio.file_path)
+        result = model.transcribe(
+            audio.file_path,
+            language="mr",
+            task="transcribe",
+            fp16=False,
+        )
 
         transcript_record.full_text = result.get("text", "").strip()
         transcript_record.language = result.get("language")

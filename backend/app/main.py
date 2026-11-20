@@ -5,6 +5,7 @@ from app.database import test_connection
 from app.routers.meetings import router as meetings_router
 from app.routers.audio import router as audio_router
 from app.routers.transcription import router as transcription_router
+from app.routers.summary import router as summary_router
 
 
 app = FastAPI(
@@ -18,6 +19,7 @@ app = FastAPI(
 app.include_router(meetings_router)
 app.include_router(audio_router)
 app.include_router(transcription_router)
+app.include_router(summary_router)
 
 
 @app.get("/")
